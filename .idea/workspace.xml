@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a6a3482-60f3-480f-9bf7-3b265e002114" name="Default Changelist" comment="" />
+    <list default="true" id="4a6a3482-60f3-480f-9bf7-3b265e002114" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../PokerBankrollManagementSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PokerBankrollManagementSystem/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../PokerBankrollManagementSystem" />
@@ -19,10 +28,12 @@
     </option>
   </component>
   <component name="ProjectId" id="1UMNhjI2VEFlVRfAoRSGF9getOr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -177,7 +188,7 @@
       <updated>1575162625180</updated>
       <workItem from="1575162626273" duration="169000" />
       <workItem from="1575162795989" duration="124000" />
-      <workItem from="1575162921288" duration="249000" />
+      <workItem from="1575162921288" duration="750000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1575163092231</created>
@@ -186,7 +197,21 @@
       <option name="project" value="LOCAL" />
       <updated>1575163092231</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update READ.me">
+      <created>1575163222557</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575163222557</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update README">
+      <created>1575163318956</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575163318956</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +232,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Update READ.me" />
+    <MESSAGE value="Update README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README" />
   </component>
 </project>
