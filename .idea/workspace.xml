@@ -19,6 +19,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1UMNhjI2VEFlVRfAoRSGF9getOr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
@@ -176,7 +177,16 @@
       <updated>1575162625180</updated>
       <workItem from="1575162626273" duration="169000" />
       <workItem from="1575162795989" duration="124000" />
+      <workItem from="1575162921288" duration="249000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1575163092231</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575163092231</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,5 +204,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
 </project>
