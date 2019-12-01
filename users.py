@@ -1,5 +1,6 @@
 import pymysql
 import init
+import util
 from pprint import pprint
 from contextlib import closing
 import datetime
@@ -17,12 +18,6 @@ class users:
         self.register_date = register_date
 
 
-# Converts tuple of strings into 1 string
-def tuple_to_str(tup):
-    result = ''.join(tup)
-    return result
-
-
 # Create new users
 # Nick name default is first name, if duplicated, then join first and last name
 def users_add_new(db, value):
@@ -32,6 +27,12 @@ def users_add_new(db, value):
         cur = db.cursor()
 
         first_name, last_name, venmo_address, password = value
+
+        # Check if name and address formatting are right
+        if util.name_format_checking(first_name) or util.name_format_checking(
+                last_name) or util.venmo_address_format_checking(venmo_address) or util.password_format_checking(
+                password):
+            return
 
         # Check if current first name already exists in the database, then nick_name = first_name + last_name
         # Else nick_name = first_name
@@ -48,7 +49,8 @@ def users_add_new(db, value):
             value = value[:2] + (first_name,) + value[2:] + (0, datetime.datetime.now())
 
         # Query to insert user into TABLE users
-        query = 'INSERT INTO users (first_name, last_name, nick_name, venmo_address, password, is_admin, register_date) ' \
+        query = 'INSERT INTO users (first_name, last_name, nick_name, venmo_address, password, is_admin, ' \
+                'register_date) ' \
                 'VALUES (%s,%s,%s,%s,%s,%s,%s)'
 
         # Executing query
@@ -79,8 +81,12 @@ def users_change_nick_name(db, user_id, new_nick_name):
             print('\nUser ID does not exist, try again  you fool.')
             return
 
+        # Check if name formatting is right
+        if util.name_format_checking(new_nick_name):
+            return
+
         # user id is valid
-        old_nick_name = tuple_to_str(cur.fetchone())
+        old_nick_name = util.tuple_to_str(cur.fetchone())
 
         # Check if the old nick name is the same as the new nick name
         if old_nick_name == new_nick_name:
@@ -116,8 +122,12 @@ def users_change_first_name(db, user_id, new_first_name):
             print('\nUser ID does not exist, try again  you fool.')
             return
 
+        # Check if name formatting is right
+        if util.name_format_checking(new_first_name):
+            return
+
         # user id is valid
-        old_first_name = tuple_to_str(cur.fetchone())
+        old_first_name = util.tuple_to_str(cur.fetchone())
 
         # Check if the old first name is the same as the new first name
         if old_first_name == new_first_name:
@@ -153,8 +163,12 @@ def users_change_last_name(db, user_id, new_last_name):
             print('\nUser ID does not exist, try again you fool.')
             return
 
+        # Check if name formatting is right
+        if util.name_format_checking(new_last_name):
+            return
+
         # user id is valid
-        old_last_name = tuple_to_str(cur.fetchone())
+        old_last_name = util.tuple_to_str(cur.fetchone())
 
         # Check if the old last name is the same as the new last name
         if old_last_name == new_last_name:
@@ -191,18 +205,11 @@ def users_change_venmo_address(db, user_id, new_venmo_address):
             return
 
         # Check if venmo address format is right
-        # Check leading @
-        if new_venmo_address[:1] != '@':
-            print('\nVenmo address has to start with "@" you fool.')
-            return
-
-        # Check if there are spaces in the venmo address
-        if ' ' in new_venmo_address:
-            print('\nThere is a space in your new venmo address you fool.')
+        if util.venmo_address_format_checking(new_venmo_address):
             return
 
         # user id is valid
-        old_venmo_address = tuple_to_str(cur.fetchone())
+        old_venmo_address = util.tuple_to_str(cur.fetchone())
 
         # Check if the old venmo_address is the same as the venmo_address
         if old_venmo_address == new_venmo_address:
@@ -239,8 +246,12 @@ def users_change_password(db, user_id, new_password):
             print('\nUser ID does not exist, try again you fool.')
             return
 
+        # Check if name formatting is right
+        if util.password_format_checking(new_password):
+            return
+
         # user id is valid
-        old_password = tuple_to_str(cur.fetchone())
+        old_password = util.tuple_to_str(cur.fetchone())
 
         # Check if the old password is the same as the new password
         if old_password == new_password:
