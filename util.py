@@ -1,10 +1,20 @@
 import re
+from datetime import datetime as dt
 
 
 # Converts tuple of strings into 1 string
 def tuple_to_str(tup):
     result = ''.join(tup)
     return result
+
+
+# Calculated elapsed interval
+# start, end should be in datetime.now() format
+def elapsed_interval(start, end):
+    elapsed = end - start
+    min, secs = divmod(elapsed.days * 86400 + elapsed.seconds, 60)
+    hour, minutes = divmod(min, 60)
+    return '%.2d:%.2d:%.2d' % (hour, minutes, secs)
 
 
 # Check if there's a space in the name
@@ -35,6 +45,7 @@ def name_special_char_checking(string):
         print("\nNo special characters you fool.")
         return 1
     return 0
+
 
 # Check multiple name formatting rules
 def name_format_checking(name):

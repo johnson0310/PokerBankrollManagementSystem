@@ -6,7 +6,7 @@ from contextlib import closing
 import datetime
 
 
-class users:
+class user:
     def __init__(self, id, first_name, last_name, nick_name, venmo_address, password, is_admin, register_date):
         self.id = id
         self.first_name = first_name
@@ -20,7 +20,7 @@ class users:
 
 # Create new users
 # Nick name default is first name, if duplicated, then join first and last name
-def users_add_new(db, value):
+def add_new_user(db, value):
     # value format: First name, last name, venmo address, password
 
     try:
@@ -31,7 +31,7 @@ def users_add_new(db, value):
         # Check if name and address formatting are right
         if util.name_format_checking(first_name) or util.name_format_checking(
                 last_name) or util.venmo_address_format_checking(venmo_address) or util.password_format_checking(
-                password):
+            password):
             return
 
         # Check if current first name already exists in the database, then nick_name = first_name + last_name
@@ -67,7 +67,7 @@ def users_add_new(db, value):
 
 
 # Change nick name for a user
-def users_change_nick_name(db, user_id, new_nick_name):
+def change_nick_name(db, user_id, new_nick_name):
     # id: INT, name: String
     try:
         cur = db.cursor()
@@ -108,7 +108,7 @@ def users_change_nick_name(db, user_id, new_nick_name):
 
 
 # Change first name for a user
-def users_change_first_name(db, user_id, new_first_name):
+def change_first_name(db, user_id, new_first_name):
     # id: INT, name: String
     try:
         cur = db.cursor()
@@ -149,7 +149,7 @@ def users_change_first_name(db, user_id, new_first_name):
 
 
 # Change last name for a user
-def users_change_last_name(db, user_id, new_last_name):
+def change_last_name(db, user_id, new_last_name):
     # id: INT, name: String
     try:
         cur = db.cursor()
@@ -190,7 +190,7 @@ def users_change_last_name(db, user_id, new_last_name):
 
 
 # Change venmo address for a user
-def users_change_venmo_address(db, user_id, new_venmo_address):
+def change_venmo_address(db, user_id, new_venmo_address):
     # id: INT, name: String
     try:
         cur = db.cursor()
@@ -232,7 +232,7 @@ def users_change_venmo_address(db, user_id, new_venmo_address):
 
 
 # Change password for a user
-def users_change_password(db, user_id, new_password):
+def change_password(db, user_id, new_password):
     # id: INT, name: String
     try:
         cur = db.cursor()
@@ -273,7 +273,7 @@ def users_change_password(db, user_id, new_password):
 
 
 # Show all existing users
-def users_show_all(db):
+def show_all_users(db):
     try:
         cur = db.cursor()
         cur.execute('SELECT * FROM users')
@@ -284,3 +284,26 @@ def users_show_all(db):
     except pymysql.Error as e:
         print('\nFailed to show all users')
         print(e)
+
+
+# Get unique user id by entering nick name
+def get_id_by_nick_name(db, nick_name):
+
+    cur = db.cursor()
+    # Find user id according to nick name
+    cur.execute('''SELECT id FROM users WHERE nick_name = %s''', (nick_name,))
+
+    # Check if user id is valid
+    row_count = cur.rowcount
+    if row_count == 0:
+        print('\nNick name does not exist, try again you fool.')
+        return
+
+    # Retrieve user id
+    return cur.fetchone()[0]
+
+def get_user_obj_by_nick_name(db, nick_name):
+    cur = db.cursor()
+
+
+
