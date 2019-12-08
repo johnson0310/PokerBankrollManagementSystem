@@ -6,18 +6,55 @@ from contextlib import closing
 import datetime
 
 
-class user:
-    def __init__(self, id, first_name, last_name, nick_name, venmo_address, password, is_admin, register_date):
-        self.id = id
-        self.first_name = first_name
-        self.last_name = last_name
-        self.nick_name = nick_name
-        self.venmo_address = venmo_address
-        self.password = password
-        self.is_admin = is_admin
-        self.register_date = register_date
+##########################################
+#                                        #
+#            INTERNAL METHODS            #
+#                                        #
+##########################################
+# Check if user exists by id
+def is_user_by_id(db, user_id):
+    cur = db.cursor()
+    cur.execute('''SELECT id FROM users WHERE id = %s''', (user_id,))
+    row_count = cur.rowcount
+    if row_count == 0:
+        return False
+    else:
+        return True
 
 
+# Check if user exists by nick_name
+def is_user_by_nick_name(db, nick_name):
+    cur = db.cursor()
+    cur.execute('''SELECT id FROM users WHERE nick_name = %s''', (nick_name,))
+    row_count = cur.rowcount
+    if row_count == 0:
+        return False
+    else:
+        return True
+
+
+# Get unique user id by entering nick name
+def get_id_by_nick_name(db, nick_name):
+    cur = db.cursor()
+    # Find user id according to nick name
+    cur.execute('''SELECT id FROM users WHERE nick_name = %s''', (nick_name,))
+
+    # Retrieve user id
+    return cur.fetchone()[0]
+
+
+# Get user nick name buy user_id
+def get_nick_name_by_id(db, user_id):
+    cur = db.cursor()
+    cur.execute('''SELECT nick_name FROM users WHERE id = %s''', (user_id,))
+    return cur.fetchone()[0]
+
+
+##########################################
+#                                        #
+#            EXTERNAL METHODS            #
+#                                        #
+##########################################
 # Create new users
 # Nick name default is first name, if duplicated, then join first and last name
 def add_new_user(db, value):
@@ -27,6 +64,12 @@ def add_new_user(db, value):
         cur = db.cursor()
 
         first_name, last_name, venmo_address, password = value
+
+        # Process entries
+        first_name.lower()
+        first_name.capitalize()
+        last_name.lower()
+        last_name.capitalize()
 
         # Check if name and address formatting are right
         if util.name_format_checking(first_name) or util.name_format_checking(
@@ -59,6 +102,7 @@ def add_new_user(db, value):
         db.rollback()
         print("\nFailed to add new user")
         print(e)
+        return
 
     # No error, commit changes
     db.commit()
@@ -100,6 +144,7 @@ def change_nick_name(db, user_id, new_nick_name):
         db.rollback()
         print("\nFailed to change nick name.\n")
         print(e)
+        return
 
     # No error, commit changes
     db.commit()
@@ -141,6 +186,7 @@ def change_first_name(db, user_id, new_first_name):
         db.rollback()
         print("\nFailed to change first name.\n")
         print(e)
+        return
 
     # No error, commit changes
     db.commit()
@@ -182,6 +228,7 @@ def change_last_name(db, user_id, new_last_name):
         db.rollback()
         print("\nFailed to change last name.\n")
         print(e)
+        return
 
     # No error, commit changes
     db.commit()
@@ -223,6 +270,7 @@ def change_venmo_address(db, user_id, new_venmo_address):
         db.rollback()
         print("\nFailed to change venmo address.\n")
         print(e)
+        return
 
     # No error, commit changes
     db.commit()
@@ -265,6 +313,7 @@ def change_password(db, user_id, new_password):
         db.rollback()
         print("\nFailed to change password.\n")
         print(e)
+        return
 
     # No error, commit changes
     db.commit()
@@ -284,26 +333,3 @@ def show_all_users(db):
     except pymysql.Error as e:
         print('\nFailed to show all users')
         print(e)
-
-
-# Get unique user id by entering nick name
-def get_id_by_nick_name(db, nick_name):
-
-    cur = db.cursor()
-    # Find user id according to nick name
-    cur.execute('''SELECT id FROM users WHERE nick_name = %s''', (nick_name,))
-
-    # Check if user id is valid
-    row_count = cur.rowcount
-    if row_count == 0:
-        print('\nNick name does not exist, try again you fool.')
-        return
-
-    # Retrieve user id
-    return cur.fetchone()[0]
-
-def get_user_obj_by_nick_name(db, nick_name):
-    cur = db.cursor()
-
-
-

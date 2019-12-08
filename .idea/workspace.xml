@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a6a3482-60f3-480f-9bf7-3b265e002114" name="Default Changelist" comment="Deleted sql.py&#10;&#10;Updated new functions.">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/current_session.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_against.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal_session_log.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/player_stats.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/session_log.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/singleton.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+    <list default="true" id="4a6a3482-60f3-480f-9bf7-3b265e002114" name="Default Changelist" comment="Beta V1.0&#10;All basic function works.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PokerBankrollManagementSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/PokerBankrollManagementSystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/current_session.py" beforeDir="false" afterPath="$PROJECT_DIR$/current_session.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/init.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/performance_against.py" beforeDir="false" afterPath="$PROJECT_DIR$/performance_against.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal_session_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_session_log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player_stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/player_stats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/session_log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/singleton.py" beforeDir="false" afterPath="$PROJECT_DIR$/singleton.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
     </list>
@@ -65,13 +60,6 @@
         <item name="PokerTracker@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="PokerTracker: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="personal_session_log: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="PokerTracker@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="PokerTracker: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="player_stats: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
@@ -80,6 +68,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="PokerTracker: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="session_log: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PokerTracker@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PokerTracker: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -108,6 +103,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -170,6 +166,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="player_stats" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PokerBankrollManagementSystem" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/player_stats.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="sql" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PokerBankrollManagementSystem" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -192,9 +210,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="util" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PokerBankrollManagementSystem" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/util.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.PokerBankrollManagementSystem" />
+        <item itemvalue="Python.player_stats" />
+        <item itemvalue="Python.util" />
         <item itemvalue="Python.current_session" />
         <item itemvalue="Python.sql" />
       </list>
@@ -224,6 +266,11 @@
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e4674489" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7dbe5e70" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e4674489" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@52cd5382" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
           </expand>
           <select />
         </treeState>
@@ -243,7 +290,12 @@
       <workItem from="1575162626273" duration="169000" />
       <workItem from="1575162795989" duration="124000" />
       <workItem from="1575162921288" duration="19377000" />
-      <workItem from="1575187127859" duration="18616000" />
+      <workItem from="1575187127859" duration="48921000" />
+      <workItem from="1575505512948" duration="15711000" />
+      <workItem from="1575681823641" duration="7454000" />
+      <workItem from="1575762690020" duration="5010000" />
+      <workItem from="1575768044935" duration="390000" />
+      <workItem from="1575768438902" duration="640000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1575163092231</created>
@@ -308,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575188895358</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Ditching user, session class. Pure SQL interaction.">
+      <created>1575253391210</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1575253391210</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,22 +396,26 @@
     <MESSAGE value="Completed users_change_nick_name, added try except block for users_add_new" />
     <MESSAGE value="Deleted sql.py&#10;&#10;Updated new functions." />
     <MESSAGE value="Updated value formatting checking" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated value formatting checking" />
+    <MESSAGE value="Ditching user, session class. Pure SQL interaction." />
+    <MESSAGE value="Beta V1.0&#10;All basic function works." />
+    <option name="LAST_COMMIT_MESSAGE" value="Beta V1.0&#10;All basic function works." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PokerBankrollManagementSystem.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/current_session.py</url>
+          <line>431</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$PokerBankrollManagementSystem.coverage" NAME="PokerBankrollManagementSystem Coverage Results" MODIFIED="1575253042083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$sql.coverage" NAME="sql Coverage Results" MODIFIED="1575170917574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$current_session.coverage" NAME="current_session Coverage Results" MODIFIED="1575250500845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$util.coverage" NAME="util Coverage Results" MODIFIED="1575506342827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$PokerBankrollManagementSystem.coverage" NAME="PokerBankrollManagementSystem Coverage Results" MODIFIED="1575768728530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$sql.coverage" NAME="sql Coverage Results" MODIFIED="1575405560278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$current_session.coverage" NAME="current_session Coverage Results" MODIFIED="1575414151558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$player_stats.coverage" NAME="player_stats Coverage Results" MODIFIED="1575682969109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
