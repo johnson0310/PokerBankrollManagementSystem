@@ -50,7 +50,7 @@ def get_num_users(db):
 
 
 # Buy in helper, payment method can be specified by "v" for venmo, "c" for cash
-def buy_in_helper(db, nick_name, buy_in_method):
+def buy_in_helper(db, nick_name, buy_in_method, buy_in_amount):
     # Active session check
     if not session_log.is_session_active(db):
         print("\nFailed to add user, there's no active game session you fool.")
@@ -77,12 +77,25 @@ def buy_in_helper(db, nick_name, buy_in_method):
         print('\n' + '*' * 60)
         print('\nAdding Player "{}" to the current session ...'.format(nick_name.capitalize()))
 
-        # Query
+        # Charge depending on payment method
+        # Update payment method status
+        if buy_in_method == 'v':
+            print('\nPayment method: Venmo')
+            cur.execute('''UPDATE current_session SET payment_method = %s WHERE player_id = %s''', ('Venmo', user_id))
+            payment.buy_in(db, user_id, buy_in_amount)
+
+        elif buy_in_method == 'c':
+            print('\nPayment method: Cash')
+            cur.execute('''UPDATE current_session SET payment_method = %s WHERE player_id = %s''', ('Cash', user_id))
+
+        db.commit()
+
+        # Add the player in to current sesion
         query = '''INSERT INTO current_session (player_id, session_buy_in, session_payout, entry_time) VALUES  (
         %s, %s, %s, %s) '''
 
         # Value
-        buy_in = singleton.get_default_buy_in()
+        buy_in = buy_in_amount
         payout = 0
         entry_time = datetime.now()
         value = (user_id, buy_in, payout, entry_time)
@@ -99,24 +112,12 @@ def buy_in_helper(db, nick_name, buy_in_method):
     # No error, commit changes
     db.commit()
 
-    # Charge depending on payment method
-    # Update payment method status
-    if buy_in_method == 'v':
-        print('\nPayment method: Venmo')
-        cur.execute('''UPDATE current_session SET payment_method = %s WHERE player_id = %s''', ('Venmo', user_id))
-        payment.buy_in(db, user_id)
-
-    elif buy_in_method == 'c':
-        print('\nPayment method: Cash')
-        cur.execute('''UPDATE current_session SET payment_method = %s WHERE player_id = %s''', ('Cash', user_id))
-
-    db.commit()
     print(
-        '\n"{}" is buying in for ${} at {}.'.format(nick_name.capitalize(), singleton.get_default_buy_in(), entry_time))
+        '\n"{}" is buying in for ${} at {}.'.format(nick_name.capitalize(), buy_in_amount, entry_time))
 
 
 # Buy back helper function, buys back for any amount, payment method can be specified by "v" for venmo, "c" for cash
-def buy_back_helper(db, nick_name, amount, buy_back_method):
+def buy_back_helper(db, nick_name, amount, payment_method):
     # Active session check
     if not session_log.is_session_active(db):
         print("\nFailed to buy back, there's no active game session you fool.")
@@ -149,15 +150,15 @@ def buy_back_helper(db, nick_name, amount, buy_back_method):
         # User exists, add amount to buy in
         user_total_buy_in = cur.fetchone()[0]
         user_total_buy_in = float(user_total_buy_in)
-        user_total_buy_in += amount
+        user_total_buy_in += float(amount)
         round(user_total_buy_in, 2)
 
         # Charge depending on payment method
-        if buy_back_method == 'v':
+        if payment_method == 'v':
             print('\nPayment method: Venmo')
-            payment.buy_in(db, user_id)
+            payment.buy_in(db, user_id, amount)
 
-        elif buy_back_method == 'c':
+        elif payment_method == 'c':
             print('\nPayment method: Cash')
 
         # Execute query for buy back amount update
@@ -182,9 +183,10 @@ def buy_back_helper(db, nick_name, amount, buy_back_method):
 
 # User partial buy back
 def partial_buy_back(db, nick_name, left_over_amount, payment_method):
-    # Check if the left over is below $2
-    if float(left_over_amount) > 2:
-        print('\nPlayers can only buy back when they are below $2.')
+    # Check if the left over is below 10 BB
+    small, big = singleton.get_blinds()
+    if float(left_over_amount) > (10 * big):
+        print('\nPlayers can only buy back when they are below 10 BB.')
         return
 
     max_buy_back = float(singleton.get_default_buy_in())
@@ -198,18 +200,23 @@ def default_buy_back(db, nick_name, payment_method):
     buy_back_helper(db, nick_name, amount, payment_method)
 
 
+# User any buy back
+def any_buy_back(db, nick_name, amount, payment_method):
+    buy_back_helper(db, nick_name, amount, payment_method)
+
+
 ##########################################
 #                                        #
 #            EXTERNAL METHODS            #
 #                                        #
 ##########################################
 # All the buy in options
-def buy_in_venmo(db, nick_name):
-    buy_in_helper(db, nick_name, 'v')
+def buy_in_venmo(db, nick_name, amount):
+    buy_in_helper(db, nick_name, 'v', amount)
 
 
-def buy_in_cash(db, nick_name):
-    buy_in_helper(db, nick_name, 'c')
+def buy_in_cash(db, nick_name, amount):
+    buy_in_helper(db, nick_name, 'c', amount)
 
 
 # Partially buy back to default buy in, the left over amount of the amount of chips player is holding
@@ -228,6 +235,11 @@ def default_buy_back_venmo(db, nick_name):
 
 def default_buy_back_cash(db, nick_name):
     default_buy_back(db, nick_name, 'c')
+
+
+# Any amount buy back
+def any_buy_back_venmo(db, nick_name, amount):
+    any_buy_back(db, nick_name, amount, 'v')
 
 
 # Cash out the player and record player's current amount of chips
@@ -252,6 +264,13 @@ def cash_out(db, nick_name, cash_out_amount):
         cur = db.cursor()
 
         user_id = users.get_id_by_nick_name(db, nick_name)
+
+        cur.execute('''SELECT player_id FROM current_session WHERE player_id = %s''', (user_id,))
+        # Check if user id exists in current session
+        row_count = cur.rowcount
+        if row_count == 0:
+            print('\nThis player is not in the current session.')
+            return
 
         # Get entry and cash out time
         cash_out_time = datetime.now()
@@ -397,14 +416,24 @@ def auto_pay_out(db):
     print('\nStarting auto payout process ...')
 
     # Get a tuple of tuples of user_ids and final pay out
+    # This is for user that has to be paid out
     cur.execute('''SELECT player_id, final_pay_out FROM current_session WHERE final_pay_out > 0''')
     final_payouts = cur.fetchall()
 
     for individual_payout in final_payouts:
         user_id, final_payout_amount = individual_payout
         payment.pay_out(db, user_id, final_payout_amount)
-        cur.execute('''UPDATE current_session SET paid_out = %s''', ('Yes',))
+        cur.execute('''UPDATE current_session SET paid_out = %s WHERE player_id = %s''', ('Yes', user_id))
 
+    # Mark players with 0 pay out as paid out
+    cur.execute('''SELECT player_id FROM current_session WHERE final_pay_out = 0''')
+    zero_payouts = cur.fetchall()
+
+    for user in zero_payouts:
+        user_id = user[0]
+        cur.execute('''UPDATE current_session SET paid_out = %s WHERE player_id = %s''', ('Yes', user_id))
+
+    db.commit()
     print('\nAuto pay out completed ... ')
     print('\n' + '*' * 60)
 

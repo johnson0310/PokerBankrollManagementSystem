@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a6a3482-60f3-480f-9bf7-3b265e002114" name="Default Changelist" comment="Beta V1.0&#10;All basic function works.">
+    <list default="true" id="4a6a3482-60f3-480f-9bf7-3b265e002114" name="Default Changelist" comment="Added v">
+      <change afterPath="$PROJECT_DIR$/google_sheet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PokerBankrollManagementSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/PokerBankrollManagementSystem.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/current_session.py" beforeDir="false" afterPath="$PROJECT_DIR$/current_session.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/init.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/performance_against.py" beforeDir="false" afterPath="$PROJECT_DIR$/performance_against.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_session_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_session_log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/player_stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/player_stats.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/session_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/session_log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/singleton.py" beforeDir="false" afterPath="$PROJECT_DIR$/singleton.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
     </list>
@@ -60,14 +58,21 @@
         <item name="PokerTracker@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="PokerTracker: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="player_stats: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="performance_against: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="PokerTracker@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="PokerTracker: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="session_log: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="personal_session_log: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PokerTracker@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PokerTracker: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="player_stats: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -108,6 +113,11 @@
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -249,27 +259,37 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e4674489" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ce9ce14a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e4674489" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1e8d828" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ce9ce14a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2c88595e" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e4674489" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@756762a5" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ce9ce14a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@161c592a" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e4674489" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7dbe5e70" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ce9ce14a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3ee05a48" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e4674489" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@52cd5382" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ce9ce14a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@44087654" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ce9ce14a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@52539cbf" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ce9ce14a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7c33177c" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -295,7 +315,11 @@
       <workItem from="1575681823641" duration="7454000" />
       <workItem from="1575762690020" duration="5010000" />
       <workItem from="1575768044935" duration="390000" />
-      <workItem from="1575768438902" duration="640000" />
+      <workItem from="1575768438902" duration="4898000" />
+      <workItem from="1575860386392" duration="1671000" />
+      <workItem from="1576174988051" duration="2722000" />
+      <workItem from="1576271685910" duration="1134000" />
+      <workItem from="1578734646012" duration="13000000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1575163092231</created>
@@ -367,7 +391,28 @@
       <option name="project" value="LOCAL" />
       <updated>1575253391210</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Beta V1.0&#10;All basic function works.">
+      <created>1575769146334</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1575769146335</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Beta V1.0&#10;All basic function works.">
+      <created>1575769163818</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1575769163818</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Beta V1.0&#10;All basic function works.">
+      <created>1575769182219</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1575769182219</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,16 +449,16 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/current_session.py</url>
-          <line>431</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/users.py</url>
+          <line>333</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$util.coverage" NAME="util Coverage Results" MODIFIED="1575506342827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$PokerBankrollManagementSystem.coverage" NAME="PokerBankrollManagementSystem Coverage Results" MODIFIED="1575768728530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$PokerBankrollManagementSystem.coverage" NAME="PokerBankrollManagementSystem Coverage Results" MODIFIED="1578793228721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$sql.coverage" NAME="sql Coverage Results" MODIFIED="1575405560278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$current_session.coverage" NAME="current_session Coverage Results" MODIFIED="1575414151558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PokerBankrollManagementSystem$player_stats.coverage" NAME="player_stats Coverage Results" MODIFIED="1575682969109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

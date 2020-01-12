@@ -4,6 +4,13 @@ import util
 from pprint import pprint
 from contextlib import closing
 import datetime
+from prettytable import PrettyTable
+
+ID = 0
+FIRST_NAME = 1
+LAST_NAME = 2
+VENMO = 4
+REGISTER_DATE = 7
 
 
 ##########################################
@@ -72,10 +79,10 @@ def add_new_user(db, value):
         last_name.capitalize()
 
         # Check if name and address formatting are right
-        if util.name_format_checking(first_name) or util.name_format_checking(
-                last_name) or util.venmo_address_format_checking(venmo_address) or util.password_format_checking(
-            password):
-            return
+        # if util.name_format_checking(first_name) or util.name_format_checking(
+        #         last_name) or util.venmo_address_format_checking(venmo_address) or util.password_format_checking(
+        #     password):
+        #     return
 
         # Check if current first name already exists in the database, then nick_name = first_name + last_name
         # Else nick_name = first_name
@@ -328,8 +335,15 @@ def show_all_users(db):
         cur.execute('SELECT * FROM users')
         users = cur.fetchall()
         print()
+        t_users = PrettyTable(['ID', 'Name', 'Venmo', 'Member Since'])
         for user in users:
-            print(user)
+            user_id = user[ID]
+            user_name = user[FIRST_NAME] + ' ' + user[LAST_NAME]
+            venmo = user[VENMO]
+            member_since = user[REGISTER_DATE].date()
+            t_users.add_row([user_id, user_name, venmo, member_since])
+
+        print(t_users)
     except pymysql.Error as e:
         print('\nFailed to show all users')
         print(e)

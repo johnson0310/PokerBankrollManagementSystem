@@ -84,17 +84,21 @@ def help_documentation():
     print('\nRegister new players to the database:')
     print('    add player : Enter First name, Last Name, Venmo Address (must start with @), and password')
 
+    print('\nShow all registered players:')
+    print('    show all players : All players will be sorted by ID')
+
     print('\nSession control:')
     print('    session start : Start a new game session')
     print('    session status : Shows summary of the current session')
     print('    session end : End the current game session')
 
     print('\nBuy in / buy back control:')
-    print('    buy in player_name : Buy in for player using venmo')
+    print('    buy in player_name buy_in_amount: Buy in for player for buy_in_amount using venmo')
     print('    buy in cash player_name : Buy in for player using cash')
-    print('    buy back full player_name : Buy back max buy in for player')
+    print('    buy back player_name : Buy back max buy in for player')
     print('    buy back partial player_name player_current_holding: Partial buy back to max buy in for player, enter '
           'the amount the player currently has')
+    print('    buy back player_name buy_in_amount: Buy back for any amount')
 
     print('\nCash out control:')
     print('    cash out player_name player_current_holding : Cash out the player with the player current holding')

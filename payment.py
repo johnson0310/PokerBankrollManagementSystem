@@ -5,8 +5,8 @@ import venmo
 current_bank = singleton.get_bank_id()
 
 
-# Charge user default buy in amount
-def buy_in(db, user_id):
+# Charge user the passed in amount
+def buy_in(db, user_id, amount):
     # If the added user is the bank, then stop
     if user_id == singleton.get_bank_id():
         print("\nDon't you charge the bank himself you fool.")
@@ -25,15 +25,15 @@ def buy_in(db, user_id):
     user_venmo = cur.fetchone()[0]
 
     try:
-        print('\nCharged without auth')
-        # venmo.payment.charge(user_venmo, singleton.get_default_buy_in(), 'Congratulations, you are one step closer to '
+        print('\nCharged {} without auth'.format(amount))
+        # venmo.payment.charge(user_venmo, amount, 'Congratulations, you are one step closer to '
         #                                                                  'becoming a degenerate.')
     except KeyError as e:
         # If catches a key error, re-auth and charge again
         print('\nCurrent access token expired')
-        # venmo.auth.configure()
+        #venmo.auth.configure()
         print('Charged with auth')
-        # venmo.payment.charge(user_venmo, singleton.get_default_buy_in(), 'Congratulations, you are one step closer to '
+        # venmo.payment.charge(user_venmo, amount, 'Congratulations, you are one step closer to '
         #                                                                  'becoming a degenerate.')
 
 
@@ -51,7 +51,7 @@ def pay_out(db, user_id, final_amount):
     nick_name, user_venmo = cur.fetchone()
 
     try:
-        print('\nPaid without auth')
+        print('\nPaid {} ${} without auth'.format(nick_name, final_amount))
         print('\nPaid "{}" ${}.'.format(nick_name, final_amount))
         # venmo.payment.charge(user_venmo, final_amount, "Thanks for your kind donation to Zhang's foundation!")
         print('\n' + '*' * 60)

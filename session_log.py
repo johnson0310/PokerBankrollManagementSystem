@@ -5,6 +5,7 @@ import current_session
 import performance_against
 import personal_session_log
 import player_stats
+import google_sheet
 from datetime import datetime
 from prettytable import PrettyTable
 
@@ -126,6 +127,14 @@ def end_session(db):
 
     ##### Update player stats with current session data #####
     player_stats.update(db)
+
+    ##### Update google sheet #####
+    sh = google_sheet.__init__()
+    google_sheet.update_users(sh, db)
+    google_sheet.update_sessions(sh, db)
+    google_sheet.update_usere_stats(sh, db)
+    google_sheet.update_ranking(sh, db)
+    google_sheet.update_tracker(sh, db)
 
     ##### END #####
     print('\nSession Summary:')

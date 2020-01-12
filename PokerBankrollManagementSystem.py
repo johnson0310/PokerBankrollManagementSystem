@@ -8,6 +8,7 @@ import session_log
 import personal_session_log
 import player_stats
 import payment
+import google_sheet
 import util
 import pymysql
 import time
@@ -51,21 +52,28 @@ with closing(db.cursor()) as cur:
                     first_name = input('    First name: ')
                     last_name = input('    Last name: ')
                     venmo_address = input('    Venmo address: ')
-                    password = input('    Password: ')
-                    users.add_new_user(db, (first_name, last_name, venmo_address, password))
+                    users.add_new_user(db, (first_name, last_name, venmo_address, 1234))
+
+            elif argument_list[ONE] == 'show':
+                if argument_list[TWO] == 'all':
+                    if argument_list[THREE] == 'players':
+                        users.show_all_users(db)
 
             elif argument_list[ONE] == 'buy':
                 if argument_list[TWO] == 'in':
-                    if len(argument_list) == 3:
-                        current_session.buy_in_venmo(db, argument_list[THREE])
+                    if len(argument_list) == 4:
+                        current_session.buy_in_venmo(db, argument_list[THREE], argument_list[FOUR])
                     elif argument_list[THREE] == 'cash':
-                        current_session.buy_in_cash(db, argument_list[FOUR])
+                        current_session.buy_in_cash(db, argument_list[THREE], argument_list[FOUR])
 
                 elif argument_list[TWO] == 'back':
-                    if argument_list[THREE] == 'full':
-                        current_session.default_buy_back_venmo(db, argument_list[FOUR])
+                    if len(argument_list) == 3:
+                        current_session.default_buy_back_venmo(db, argument_list[THREE])
+                    elif len(argument_list[THREE]) == 4:
+                        current_session.any_buy_back_venmo(db, argument_list[THREE], argument_list[FOUR])
                     elif argument_list[THREE] == 'partial':
                         current_session.partial_buy_back_venmo(db, argument_list[FOUR], argument_list[FIVE])
+
 
             elif argument_list[ONE] == 'cash':
                 if argument_list[TWO] == 'out':
@@ -100,6 +108,12 @@ with closing(db.cursor()) as cur:
                 elif len(argument_list) == 2:
                     player_stats.show_stats_nick_name(db, argument_list[TWO])
 
+            elif argument_list[ONE] == 'performance':
+                if argument_list[TWO] == 'all':
+                    performance_against.show_performance_by_all(db)
+                elif len(argument_list) == 2:
+                    performance_against.show_performance_by_nick_name(db, argument_list[TWO])
+
             elif argument_list[ONE] == 'pay':
                 if argument_list[TWO] == 'out':
                     current_session.auto_pay_out(db)
@@ -124,7 +138,6 @@ with closing(db.cursor()) as cur:
         except IndexError as e:
             print('\nArguments not valid, please look at the documentation and try again.')
             continue
-
 
     # session_log.start_session(db)
     #

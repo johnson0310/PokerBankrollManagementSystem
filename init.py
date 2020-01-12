@@ -16,8 +16,8 @@ def init_sql():
         )
         cur = conn.cursor()
 
-    except pymysql.connect.Error as error:
-        print("Failed to connect to mySQL database, error: {}".format(error))
+    except:
+        print("Failed to connect to mySQL database")
 
     print('\nConnected to the SQL server ...')
 
